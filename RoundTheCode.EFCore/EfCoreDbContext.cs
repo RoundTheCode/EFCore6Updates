@@ -32,5 +32,11 @@ namespace RoundTheCode.EFCore
 				action.IsTemporal();
 			});
 		}
+
+		protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+		{
+			// Pre-convention model configuration goes here
+			configurationBuilder.Properties<string>().AreUnicode(true).HaveMaxLength(300);
+		}
 	}
 }
