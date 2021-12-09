@@ -20,7 +20,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(o =>
+    {
+        o.SwaggerEndpoint("/swagger/v1/swagger.json", "Round The Code EF Core 6 updates");
+        o.RoutePrefix = string.Empty;
+    });
 }
 
 app.UseHttpsRedirection();

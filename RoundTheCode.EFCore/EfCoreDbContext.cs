@@ -17,5 +17,20 @@ namespace RoundTheCode.EFCore
         {
 
         }
-    }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Player>()
+			.ToTable(action =>
+			{
+				action.IsTemporal();
+			});
+
+			modelBuilder.Entity<Team>()
+			.ToTable(action =>
+			{
+				action.IsTemporal();
+			});
+		}
+	}
 }
